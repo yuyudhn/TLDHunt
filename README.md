@@ -49,4 +49,4 @@ You can add -x flag to print only Not Registered domain. Example:
 ./tldhunt.sh -k linuxsec -E tlds.txt -x
 ```
 # Screenshot
-![TLDHunt](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLUjtF_eTAw4wKGE_EyoIEYLaDqSKkNeT1cksKweM954zXhkOMzUjY4N0WvOUZeqWEm2B3EbK-2ICMMczgv99maAwDRuWmUxlFzrShw9tgUXfv9C3PjBxcPJif9hsrLjtQUU9DVFq0iS36BoJhxWPC-cp-QH5WL-O2g9B3OPY_eihBogybr4Z3tXjsmg/s771/tldhunt.png "TLDHunt")
+![TLDHunt](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1mrljuonzhjuuPoc9Bn_rH1X-drfrPHm1fYew52STZw7sHf8Pa6oQflj1ZOcm9FQKw7wVlRPn6gZDQoKFpnzXEe6bjcQ6dF8cMnKIkhbSHx4Mt9Qz24NaXgfTifapzuO3_8qP-1c53N0jLdotvi9bmbfIx8VyjP_ukDv_bu49kxLOBPFSlgRXXRfgAg/s782/tldhunt.png "TLDHunt")

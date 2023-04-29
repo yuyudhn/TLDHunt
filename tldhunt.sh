@@ -70,21 +70,21 @@ processes=0
 for ext in $tlds; do
     domain="$keyword$ext"
     {
-        result=$(whois "$domain" | grep -i "Name Server")
+        result=$(whois "$domain" 2>/dev/null | grep -i "Name Server")
         if [ -n "$result" ]; then
             if [ "$nreg" = false ]; then
-                echo -e "$domain is ${b_red}Registered${reset}"
+                echo -e "[${b_red}taken${reset}] - $domain"
             fi
         else
             if [ "$nreg" = false ]; then
-                echo -e "$domain is ${b_green}Not Registered${reset}"
+                echo -e "[${b_green}avail${reset}] - $domain"
             else
                 echo -e "$domain"
             fi
         fi
     } &
     ((processes+=1))
-    if ((processes >= 15)); then
+    if ((processes >= 20)); then
         wait
         processes=0
     fi
