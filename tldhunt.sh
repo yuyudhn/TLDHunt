@@ -13,7 +13,9 @@
 
 # Default value
 nreg=false
-exts="tlds.txt"
+if [[ -z $tld && -z $exts ]]; then
+    exts="tlds.txt"
+fi
 
 # Check if whois is installed
 command -v whois &> /dev/null || { printf '%s\n' "whois not installed. You must install whois to use this tool." >&2 ; exit 1 ;}
@@ -70,7 +72,7 @@ processes=0
 for ext in $tlds; do
     domain="$keyword$ext"
     {
-        result=$(whois "$domain" 2>/dev/null | grep -i "Name Server")
+        result=$(whois "$domain" 2>/dev/null | grep -i "Name Server\|nserver\|nameservers\|status: active")
         if [ -n "$result" ]; then
             if [ "$nreg" = false ]; then
                 echo -e "[${b_red}taken${reset}] - $domain"
@@ -84,7 +86,7 @@ for ext in $tlds; do
         fi
     } &
     ((processes+=1))
-    if ((processes >= 20)); then
+    if ((processes >= 30)); then
         wait
         processes=0
     fi
