@@ -44,6 +44,7 @@ Usage: ./tldhunt.sh -k <keyword> [-e <tld> | -E <exts>] [-x]
 Example: ./tldhunt.sh -k linuxsec -E tlds.txt
 ```
 Example of TLDHunt usage:
+
 Use default TLD list
 ```
 ./tldhunt.sh -k linuxsec
