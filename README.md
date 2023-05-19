@@ -10,10 +10,13 @@ sudo apt install whois -y
 ```
 
 # How It Works?
-To detect whether a domain is registered or not, we search for the words "**Name Server**" in the output of the WHOIS command, as this is a signature of a registered domain. If you have a better signature or detection method, please feel free to submit a pull request.
+To detect whether a domain is registered or not, we search for the words "**Name Server**", "**nserver**", "**nameservers**", or "**status: active**" in the output of the WHOIS command, as this is a signature of a registered domain (thanks to [Alex Matveenko](https://github.com/Alex-Matveenko) for the suggestion). 
+
+If you have a better signature or detection method, please feel free to submit a pull request.
 
 # Domain Extension List
-You can use your custom tlds.txt list, but make sure that it is formatted like this:
+For default Top Level Domain list (tlds.txt), we use data from https://data.iana.org.
+You can use your custom list, but make sure that it is formatted like this:
 ```
 .aero
 .asia
@@ -41,12 +44,17 @@ Usage: ./tldhunt.sh -k <keyword> [-e <tld> | -E <exts>] [-x]
 Example: ./tldhunt.sh -k linuxsec -E tlds.txt
 ```
 Example of TLDHunt usage:
+Use default TLD list
 ```
-./tldhunt.sh -k linuxsec -E tlds.txt
+./tldhunt.sh -k linuxsec
 ```
-You can add -x flag to print only Not Registered domain. Example:
+Use custom TLD list
 ```
-./tldhunt.sh -k linuxsec -E tlds.txt -x
+./tldhunt.sh -k linuxsec -E custom-tld.txt
+```
+You can add -x flag to print only **Not Registered** domain. Example:
+```
+./tldhunt.sh -k linuxsec -x
 ```
 # Screenshot
 ![TLDHunt](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1mrljuonzhjuuPoc9Bn_rH1X-drfrPHm1fYew52STZw7sHf8Pa6oQflj1ZOcm9FQKw7wVlRPn6gZDQoKFpnzXEe6bjcQ6dF8cMnKIkhbSHx4Mt9Qz24NaXgfTifapzuO3_8qP-1c53N0jLdotvi9bmbfIx8VyjP_ukDv_bu49kxLOBPFSlgRXXRfgAg/s782/tldhunt.png "TLDHunt")
