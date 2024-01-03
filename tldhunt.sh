@@ -13,9 +13,6 @@
 
 # Default value
 nreg=false
-if [[ -z $tld && -z $exts ]]; then
-    exts="tlds.txt"
-fi
 
 # Check if whois is installed
 command -v whois &> /dev/null || { printf '%s\n' "whois not installed. You must install whois to use this tool." >&2 ; exit 1 ;}
@@ -54,16 +51,19 @@ fi
 if [[ -n $tld && -n $exts ]]; then
     echo "You can only specify one of -e or -E options."
     usage
+elif [[ -z $tld && -z $exts ]]; then
+    echo "Either -e or -E option is required."
+    usage
 fi
 
 if [[ -n $exts && ! -f $exts ]]; then
-    echo "tld file $exts not found."
+    echo "TLD file $exts not found."
     usage
 fi
 
 if [[ -n $exts ]]; then
     tlds=$(cat "$exts")
-else
+elif [[ -n $tld ]]; then
     tlds=$tld
 fi
 
@@ -72,14 +72,20 @@ processes=0
 for ext in $tlds; do
     domain="$keyword$ext"
     {
-        result=$(whois "$domain" 2>/dev/null | grep -i "Name Server\|nserver\|nameservers\|status: active")
+        whois_output=$(whois "$domain" 2>/dev/null)
+        result=$(echo "$whois_output" | grep -i -E "Name Server|nserver|nameservers|status: active")
         if [ -n "$result" ]; then
             if [ "$nreg" = false ]; then
-                echo -e "[${b_red}taken${reset}] - $domain"
+                expiry_date=$(echo "$whois_output" | grep -i -E "Expiry Date|Expiration Date|Registry Expiry Date" | grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2}' | uniq)
+                if [ -n "$expiry_date" ]; then
+                    echo -e "[${b_red}taken${reset}] $domain - Exp Date: ${orange}$expiry_date${reset}"
+                else
+                    echo -e "[${b_red}taken${reset}] $domain - No expiry date found"
+                fi
             fi
         else
             if [ "$nreg" = false ]; then
-                echo -e "[${b_green}avail${reset}] - $domain"
+                echo -e "[${b_green}avail${reset}] $domain"
             else
                 echo -e "$domain"
             fi

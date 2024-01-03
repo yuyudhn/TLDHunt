@@ -1,0 +1,12 @@
+.com
+.net
+.org
+.xyz
+.club
+.biz
+.top
+.pro
+.id
+.ru
+.asia
+.nl
