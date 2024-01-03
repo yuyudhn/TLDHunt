@@ -46,16 +46,16 @@ Example: ./tldhunt.sh -k linuxsec -E tlds.txt
 Example of TLDHunt usage:
 
 Use default TLD list
-```
-./tldhunt.sh -k linuxsec
+```bash
+./tldhunt.sh -k linuxsec -E tlds.txt
 ```
 Use custom TLD list
-```
+```bash
 ./tldhunt.sh -k linuxsec -E custom-tld.txt
 ```
-You can add -x flag to print only **Not Registered** domain. Example:
-```
-./tldhunt.sh -k linuxsec -x
+You can add `-x` or `--not-registered` flag to print only **Not Registered** domain. Example:
+```bash
+./tldhunt.sh -k linuxsec -E tlds.txt --not-registered
 ```
 # Screenshot
-![TLDHunt](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1mrljuonzhjuuPoc9Bn_rH1X-drfrPHm1fYew52STZw7sHf8Pa6oQflj1ZOcm9FQKw7wVlRPn6gZDQoKFpnzXEe6bjcQ6dF8cMnKIkhbSHx4Mt9Qz24NaXgfTifapzuO3_8qP-1c53N0jLdotvi9bmbfIx8VyjP_ukDv_bu49kxLOBPFSlgRXXRfgAg/s782/tldhunt.png "TLDHunt")
+![TLDHunt](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH2w600_IzO7BX6TmRECWzHu3aXlxsMVVBsvCk5cZ56x6v341edcGB3ByhhFiojjpkenLxShLVu5mpUeO9PO05Rv37fjylD2f5rpHodI8-6YelfVKXuvOcjbvlIgVteTtNpnaHYAm_xz9n7Q86ln6U9SAgUV6y65Dfg6UAdc-bb-vyHmuHvp63-Qlujlwx/s949/tldhunt.png "TLDHunt")
