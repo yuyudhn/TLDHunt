@@ -1,6 +1,5 @@
 .aaa
 .aarp
-.abarth
 .abb
 .abbott
 .abbvie
@@ -35,7 +34,6 @@
 .airtel
 .akdn
 .al
-.alfaromeo
 .alibaba
 .alipay
 .allfinanz
@@ -214,7 +212,6 @@
 .cba
 .cbn
 .cbre
-.cbs
 .cc
 .cd
 .center
@@ -243,7 +240,6 @@
 .citi
 .citic
 .city
-.cityeats
 .ck
 .cl
 .claims
@@ -277,7 +273,6 @@
 .contact
 .contractors
 .cooking
-.cookingchannel
 .cool
 .coop
 .corsica
@@ -383,7 +378,6 @@
 .esq
 .estate
 .et
-.etisalat
 .eu
 .eurovision
 .eus
@@ -409,7 +403,6 @@
 .ferrari
 .ferrero
 .fi
-.fiat
 .fidelity
 .fido
 .film
@@ -435,7 +428,6 @@
 .fo
 .foo
 .food
-.foodnetwork
 .football
 .ford
 .forex
@@ -448,7 +440,6 @@
 .fresenius
 .frl
 .frogans
-.frontdoor
 .frontier
 .ftr
 .fujitsu
@@ -541,7 +532,6 @@
 .helsinki
 .here
 .hermes
-.hgtv
 .hiphop
 .hisamitsu
 .hitachi
@@ -563,7 +553,6 @@
 .host
 .hosting
 .hot
-.hoteles
 .hotels
 .hotmail
 .house
@@ -651,7 +640,6 @@
 .kia
 .kids
 .kim
-.kinder
 .kindle
 .kitchen
 .kiwi
@@ -676,7 +664,6 @@
 .lamborghini
 .lamer
 .lancaster
-.lancia
 .land
 .landrover
 .lanxess
@@ -750,7 +737,6 @@
 .markets
 .marriott
 .marshalls
-.maserati
 .mattel
 .mba
 .mc
@@ -810,7 +796,6 @@
 .mu
 .museum
 .music
-.mutual
 .mv
 .mw
 .mx
@@ -851,7 +836,6 @@
 .nl
 .no
 .nokia
-.northwesternmutual
 .norton
 .now
 .nowruz
@@ -897,7 +881,6 @@
 .partners
 .parts
 .party
-.passagens
 .pay
 .pccw
 .pe
@@ -998,7 +981,6 @@
 .rio
 .rip
 .ro
-.rocher
 .rocks
 .rodeo
 .rogers
@@ -1033,7 +1015,6 @@
 .sbi
 .sbs
 .sc
-.sca
 .scb
 .schaeffler
 .schmidt
@@ -1071,7 +1052,6 @@
 .shopping
 .shouji
 .show
-.showtime
 .si
 .silk
 .sina
@@ -1169,7 +1149,6 @@
 .tiaa
 .tickets
 .tienda
-.tiffany
 .tips
 .tires
 .tirol
@@ -1199,7 +1178,6 @@
 .trading
 .training
 .travel
-.travelchannel
 .travelers
 .travelersinsurance
 .trust
@@ -1254,14 +1232,12 @@
 .vlaanderen
 .vn
 .vodka
-.volkswagen
 .volvo
 .vote
 .voting
 .voto
 .voyage
 .vu
-.vuelos
 .wales
 .walmart
 .walter
@@ -1390,7 +1366,6 @@
 .xn--mgba3a3ejt
 .xn--mgba3a4f16a
 .xn--mgba7c0bbn0a
-.xn--mgbaakc7dvf
 .xn--mgbaam7a8h
 .xn--mgbab2bd
 .xn--mgbah1a3hjkrd
