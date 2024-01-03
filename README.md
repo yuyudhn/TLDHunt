@@ -3,6 +3,9 @@ TLDHunt is a command-line tool designed to help users find available domain name
 
 For red teaming or phishing purposes, this tool can help you to find similar domains with different extensions from the original domain.
 
+> [!NOTE]  
+> Tested on: **Kali GNU/Linux Rolling** with **whois v5.5.15**
+
 # Dependencies
 This tool is written in Bash and the only dependency required is **whois**. Therefore, make sure that you have installed whois on your system. In Debian, you can install whois using the following command:
 ```
