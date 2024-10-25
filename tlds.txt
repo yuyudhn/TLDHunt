@@ -84,7 +84,6 @@
 .author
 .auto
 .autos
-.avianca
 .aw
 .aws
 .ax
@@ -95,7 +94,6 @@
 .baby
 .baidu
 .banamex
-.bananarepublic
 .band
 .bank
 .bar
@@ -260,7 +258,6 @@
 .college
 .cologne
 .com
-.comcast
 .commbank
 .community
 .company
@@ -299,7 +296,6 @@
 .cymru
 .cyou
 .cz
-.dabur
 .dad
 .dance
 .data
@@ -511,7 +507,6 @@
 .gs
 .gt
 .gu
-.guardian
 .gucci
 .guge
 .guide
@@ -805,7 +800,6 @@
 .nab
 .nagoya
 .name
-.natura
 .navy
 .nba
 .nc
@@ -854,7 +848,6 @@
 .okinawa
 .olayan
 .olayangroup
-.oldnavy
 .ollo
 .om
 .omega
@@ -1043,7 +1036,6 @@
 .sh
 .shangrila
 .sharp
-.shaw
 .shell
 .shia
 .shiksha
@@ -1275,7 +1267,6 @@
 .wtf
 .xbox
 .xerox
-.xfinity
 .xihuan
 .xin
 .xn--11b4c3d
