@@ -12,6 +12,7 @@
 nreg=false
 nprem=false
 error=false
+quiet=false
 sleep_time=0.5
 
 # Check if whois installed
@@ -30,13 +31,14 @@ echo -e "${reset}"
 
 # Instruction
 usage() {
-    echo -e "${green}Usage:${reset} $0 [${blue}-k <keyword>${reset} | ${blue}-K <keyword-file>${reset}] [${blue}-t <tld>${reset} | ${blue}-T <tld-file>${reset}] [${blue}-d <time>${reset}] [${cyan}-x${reset}] [${cyan}-n${reset}] [${cyan}-xn${reset}] [${orange}-h${reset}]"
+    echo -e "${green}Usage:${reset} $0 [${blue}-k <keyword>${reset} | ${blue}-K <keyword-file>${reset}] [${blue}-t <tld>${reset} | ${blue}-T <tld-file>${reset}] [${blue}-d <time>${reset}] [${cyan}-q$reset] [${cyan}-x${reset}] [${cyan}-n${reset}] [${cyan}-xn${reset}] [${orange}-h${reset}]"
     echo -e "\n${green}Options:${reset}"
     echo -e "  ${blue}-k,  --keyword             <keyword>${reset}       Specify a single keyword."
     echo -e "  ${blue}-K,  --keyword-file        <file>${reset}          Use a file containing a list of keywords."
     echo -e "  ${blue}-t,  --tld                 <tld>${reset}           Specify a single top-level domain (TLD)."
     echo -e "  ${blue}-T,  --tld-file            <file>${reset}          Use a file containing a list of TLDs."
-    echo -e "  ${blue}-d,  --delay               <time>${reset}          Set the delay time between requests. Default - 0.5s."
+    echo -e "  ${blue}-d,  --delay               <time>${reset}          Set the delay time between requests. Default: 0.5s."
+    echo -e "  ${cyan}-q,  --quiet                               ${reset}Suppress error messages and display only results."
     echo -e "  ${cyan}-x,  --not-registered                      ${reset}Show only unregistered domains."
     echo -e "  ${cyan}-n,  --no-premium                          ${reset}Show only non-premium domains."
     echo -e "  ${cyan}-xn, --unreg-noprem                        ${reset}Combination of -x and -n."
@@ -60,6 +62,7 @@ while [[ "$#" -gt 0 ]]; do
         -t|--tld) tld="$2"; shift ;;
         -T|--tld-file) exts="$2"; shift ;;
         -d|--delay) sleep_time="$2"; shift ;;
+        -q|--quiet) quiet=true ;;
         -x|--not-registered) nreg=true ;;
         -n|--no-premium) nprem=true ;;
         -xn|-nx|--unreg-noprem) nprem=true; nreg=true ;;
@@ -101,7 +104,9 @@ check_domain() {
     local whois_output
     whois_output=$(whois "${domain}" 2>&1)
     if [[ $? -ge 1 ]]; then
-        echo -e "[${red}error${reset}] $domain - $whois_output"
+        if [[ "$quiet" = false ]]; then
+            echo -e "[${red}error${reset}] $domain - $whois_output"
+        fi
         return 1
     else
         local result
