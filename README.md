@@ -21,6 +21,8 @@ sudo pacman -S whois
 # How It Works?
 To detect whether a domain is registered or not, we search for the words "**Name Server**", "**nserver**", "**nameservers**", or "**status: active**" in the output of the WHOIS command, as this is a signature of a registered domain (thanks to [Alex Matveenko](https://github.com/Alex-Matveenko) for the suggestion). 
 
+In addition to this detection method, the script now handles error messages from WHOIS to avoid false positives for available domains. It also checks for premium domains, allowing users to exclude them from the results. Furthermore, there are options to adjust the delay between requests, enable quiet mode to suppress error messages, and use both single keywords or a list of keywords from a file. The flags have been expanded to provide more flexibility when specifying domains and TLDs.
+
 If you have a better signature or detection method, please feel free to submit a pull request.
 
 # Domain Extension List
@@ -86,7 +88,7 @@ Use a list of keywords:
 ```bash
 ./tldhunt.sh -K linuxsec.txt -T .me
 ```
-You can add `-d` or `--delay` set the **delay** time between requests. Default: 0.5s. Example:
+You can add `-d` or `--delay` to set the **delay** time between requests. Default: 0.5s. Example:
 ```bash
 ./tldhunt.sh -k linuxsec -T tlds.txt -d 0.7
 ```
@@ -110,7 +112,9 @@ You can add `-h` or `--help` flag to print instruction. Example:
 ```bash
 ./tldhunt.sh -h
 ```
-# Screenshot
+# Example of TLDHunt output:
 ![TLDHunt](screenshots/Example.jpg "TLDHunt")
 # Note
 If you see a lot of 'connect: Network is unreachable' errors, you have been blocked due to too many requests in a short period. Try again later and increase the delay.
+# Contributors
+Recent enhancements, such as error handling, premium domain filtering, and flexible flag options, were added by [h1pp0crates](https://github.com/h1pp0crates).
