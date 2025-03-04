@@ -5,6 +5,7 @@ For red teaming or phishing purposes, this tool can help you to find similar dom
 
 > [!NOTE]  
 > Tested on: **Kali GNU/Linux Rolling** with **whois v5.5.15**
+>
 > Tested on: **Arch GNU/Linux** with **whois v5.5.23**
 
 # Dependencies
