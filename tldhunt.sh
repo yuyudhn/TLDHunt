@@ -39,7 +39,7 @@ usage() {
     echo -e "  ${blue}-d,  --delay               <time>${reset}          Set the delay time between requests. Default - 0.5s."
     echo -e "  ${cyan}-x,  --not-registered                      ${reset}Show only unregistered domains."
     echo -e "  ${cyan}-n,  --no-premium                          ${reset}Show only non-premium domains."
-    echo -e "  ${cyan}-xn, --unreg-premium                       ${reset}Combination of -x and -n."
+    echo -e "  ${cyan}-xn, --unreg-noprem                        ${reset}Combination of -x and -n."
     echo -e "  ${orange}-h,  --help                                ${reset}Display this help message."
     echo -e "\n${green}Examples:${reset}"
     echo -e "  $0 ${blue}-K example.txt -t .com${reset}"
@@ -62,7 +62,7 @@ while [[ "$#" -gt 0 ]]; do
         -d|--delay) sleep_time="$2"; shift ;;
         -x|--not-registered) nreg=true ;;
         -n|--no-premium) nprem=true ;;
-        -xn|-nx|--unreg-premium) nprem=true; nreg=true ;;
+        -xn|-nx|--unreg-noprem) nprem=true; nreg=true ;;
         -h|--help) usage ;;
         *) echo "Unknown parameter passed: $1"; usage ;;
     esac
