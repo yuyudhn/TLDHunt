@@ -63,13 +63,14 @@ Options:
   -h,  --help                                Display this help message.
 
 Examples:
-  ./tldhunt.sh -K example.txt -t .com
-  ./tldhunt.sh -k example -t .com
-  ./tldhunt.sh -k example -T tlds.txt
-  ./tldhunt.sh -k example -T tlds.txt -x
-  ./tldhunt.sh -k example -T tlds.txt -n
-  ./tldhunt.sh -k example -T tlds.txt -xn
-  ./tldhunt.sh -k example -T tlds.txt -d 2
+  ./tldhunt.sh -K linuxsec.txt -t .com
+  ./tldhunt.sh -k linuxsec -t .com
+  ./tldhunt.sh -k linuxsec -T tlds.txt
+  ./tldhunt.sh -k linuxsec -T tlds.txt -x
+  ./tldhunt.sh -k linuxsec -T tlds.txt -n
+  ./tldhunt.sh -k linuxsec -T tlds.txt -xn
+  ./tldhunt.sh -k linuxsec -T tlds.txt -d 2
+  ./tldhunt.sh -k linuxsec -T tlds.txt -q
 ```
 Example of TLDHunt usage:
 

@@ -44,13 +44,14 @@ usage() {
     echo -e "  ${cyan}-xn, --unreg-noprem                        ${reset}Combination of -x and -n."
     echo -e "  ${orange}-h,  --help                                ${reset}Display this help message."
     echo -e "\n${green}Examples:${reset}"
-    echo -e "  $0 ${blue}-K example.txt -t .com${reset}"
-    echo -e "  $0 ${blue}-k example -t .com${reset}"
-    echo -e "  $0 ${blue}-k example -T tlds.txt${reset}"
-    echo -e "  $0 ${blue}-k example -T tlds.txt -x${reset}"
-    echo -e "  $0 ${blue}-k example -T tlds.txt -n${reset}"
-    echo -e "  $0 ${blue}-k example -T tlds.txt -xn${reset}"
-    echo -e "  $0 ${blue}-k example -T tlds.txt -d 2${reset}\n"
+    echo -e "  $0 ${blue}-K linuxsec.txt -t .com${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -t .com${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -T tlds.txt${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -T tlds.txt -x${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -T tlds.txt -n${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -T tlds.txt -xn${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -T tlds.txt -d 2${reset}"
+    echo -e "  $0 ${blue}-k linuxsec -T tlds.txt -q${reset}\n"
     exit 1
 }
 
