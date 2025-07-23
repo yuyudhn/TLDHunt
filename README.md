@@ -7,9 +7,13 @@ For red teaming or phishing purposes, this tool can help you to find similar dom
 > Tested on: **Kali GNU/Linux Rolling** with **whois v5.5.15**
 
 # Dependencies
-This tool is written in Bash and the only dependency required is **whois**. Therefore, make sure that you have installed whois on your system. In Debian, you can install whois using the following command:
+This tool is written in Bash and requires the following dependencies:
+- **whois**: Used to check domain availability.
+- **curl**: Used to fetch the latest TLD list from IANA.
+
+Make sure these are installed on your system. In Debian-based systems, you can install them using the following command:
 ```
-sudo apt install whois -y
+sudo apt install whois curl -y
 ```
 
 # How It Works?
@@ -18,8 +22,9 @@ To detect whether a domain is registered or not, we search for the words "**Name
 If you have a better signature or detection method, please feel free to submit a pull request.
 
 # Domain Extension List
-For default Top Level Domain list (tlds.txt), we use data from https://data.iana.org.
-You can use your custom list, but make sure that it is formatted like this:
+For the default Top Level Domain list (`tlds.txt`), we use data from https://data.iana.org. You can update this list directly using the `--update-tld` flag, which fetches the latest TLDs from IANA and saves them to `tlds.txt`.
+
+You can also use a custom TLD list, but ensure it is formatted like this:
 ```
 .aero
 .asia
@@ -43,22 +48,31 @@ You can use your custom list, but make sure that it is formatted like this:
         Domain Availability Checker
 
 Keyword is required.
-Usage: ./tldhunt.sh -k <keyword> [-e <tld> | -E <exts>] [-x]
+Usage: ./tldhunt.sh -k <keyword> [-e <tld> | -E <exts>] [-x] [--update-tld]
 Example: ./tldhunt.sh -k linuxsec -E tlds.txt
+       : ./tldhunt.sh --update-tld
 ```
-Example of TLDHunt usage:
 
-Use default TLD list
+### Examples
+Update the default TLD list from IANA:
+```bash
+./tldhunt.sh --update-tld
+```
+
+Check domain availability using the default TLD list:
 ```bash
 ./tldhunt.sh -k linuxsec -E tlds.txt
 ```
-Use custom TLD list
+
+Check domain availability using a custom TLD list:
 ```bash
 ./tldhunt.sh -k linuxsec -E custom-tld.txt
 ```
-You can add `-x` or `--not-registered` flag to print only **Not Registered** domain. Example:
+
+Show only unregistered domains:
 ```bash
 ./tldhunt.sh -k linuxsec -E tlds.txt --not-registered
 ```
+
 # Screenshot
 ![TLDHunt](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiH2w600_IzO7BX6TmRECWzHu3aXlxsMVVBsvCk5cZ56x6v341edcGB3ByhhFiojjpkenLxShLVu5mpUeO9PO05Rv37fjylD2f5rpHodI8-6YelfVKXuvOcjbvlIgVteTtNpnaHYAm_xz9n7Q86ln6U9SAgUV6y65Dfg6UAdc-bb-vyHmuHvp63-Qlujlwx/s949/tldhunt.png "TLDHunt")

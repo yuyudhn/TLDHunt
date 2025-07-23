@@ -117,7 +117,6 @@
 .beats
 .beauty
 .beer
-.bentley
 .berlin
 .best
 .bestbuy
@@ -626,7 +625,6 @@
 .kddi
 .ke
 .kerryhotels
-.kerrylogistics
 .kerryproperties
 .kfh
 .kg
@@ -658,7 +656,6 @@
 .lacaixa
 .lamborghini
 .lamer
-.lancaster
 .land
 .landrover
 .lanxess
@@ -690,7 +687,6 @@
 .limo
 .lincoln
 .link
-.lipsy
 .live
 .living
 .lk
@@ -915,7 +911,6 @@
 .porn
 .post
 .pr
-.pramerica
 .praxi
 .press
 .prime

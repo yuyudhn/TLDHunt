@@ -12,11 +12,17 @@
 : "${b_red:=\033[1;31m}"
 : "${b_orange:=\033[1;33m}"
 
-# Default value
+# Default values
 nreg=false
+update_tld=false
+tld_file="tlds.txt"
+tld_url="https://data.iana.org/TLD/tlds-alpha-by-domain.txt"
 
 # Check if whois is installed
 command -v whois &> /dev/null || { echo "whois not installed. You must install whois to use this tool." >&2; exit 1; }
+
+# Check if curl is installed (needed for TLD update)
+command -v curl &> /dev/null || { echo "curl not installed. You must install curl to use this tool." >&2; exit 1; }
 
 # Banner
 cat << "EOF"
@@ -28,8 +34,9 @@ cat << "EOF"
 EOF
 
 usage() {
-    echo "Usage: $0 -k <keyword> [-e <tld> | -E <tld-file>] [-x]"
+    echo "Usage: $0 -k <keyword> [-e <tld> | -E <tld-file>] [-x] [--update-tld]"
     echo "Example: $0 -k linuxsec -E tlds.txt"
+    echo "       : $0 --update-tld"
     exit 1
 }
 
@@ -40,10 +47,22 @@ while [[ "$#" -gt 0 ]]; do
         -e|--tld) tld="$2"; shift ;;
         -E|--tld-file) exts="$2"; shift ;;
         -x|--not-registered) nreg=true ;;
+        --update-tld) update_tld=true ;;
         *) echo "Unknown parameter passed: $1"; usage ;;
     esac
     shift
 done
+
+# Update TLD list if requested
+if [[ "$update_tld" = true ]]; then
+    echo "Fetching TLD data from $tld_url..."
+    curl -s "$tld_url" | \
+        grep -v '^#' | \
+        tr '[:upper:]' '[:lower:]' | \
+        sed 's/^/./' > "$tld_file"
+    echo "TLDs have been saved to $tld_file."
+    exit 0
+fi
 
 # Validate arguments
 [[ -z $keyword ]] && { echo "Keyword is required."; usage; }
