@@ -89,7 +89,7 @@ check_domain() {
     if [[ -n $result ]]; then
         if [[ "$nreg" = false ]]; then
             local expiry_date
-            expiry_date=$(echo "$whois_output" | grep -iE "Expiry Date|Expiration Date|Registry Expiry Date" | grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2}' | uniq)
+            expiry_date=$(echo "$whois_output" | grep -iE "Expiry Date|Expiration Date|Registry Expiry Date|Expiration Time" | grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2}' | uniq)
             if [[ -n $expiry_date ]]; then
                 echo -e "[${b_red}taken${reset}] $domain - Exp Date: ${orange}$expiry_date${reset}"
             else
