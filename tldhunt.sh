@@ -53,8 +53,9 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-# Update TLD list if requested
+# Validate arguments
 if [[ "$update_tld" = true ]]; then
+    [[ -n $keyword || -n $tld || -n $exts || "$nreg" = true ]] && { echo "--update-tld cannot be used with other flags."; usage; }
     echo "Fetching TLD data from $tld_url..."
     curl -s "$tld_url" | \
         grep -v '^#' | \
